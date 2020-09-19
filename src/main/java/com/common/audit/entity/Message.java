@@ -1,6 +1,7 @@
 package com.common.audit.entity;
 
 import lombok.Data;
+import org.springframework.util.JdkIdGenerator;
 
 import java.util.Date;
 
@@ -9,6 +10,11 @@ import java.util.Date;
  */
 @Data
 public class Message {
+
+    public Message(){
+        this.setId(new JdkIdGenerator().generateId().toString().replaceAll("-",""));
+        this.setSendTime(new Date());
+    }
 
     /**
      * 消息id
@@ -26,18 +32,18 @@ public class Message {
     private Date sendTime;
 
     /**
-     * 接收人id
+     * 接收人id,多个则用逗号或分号分隔
      */
-    private long receiverId;
+    private String targetId;
 
     /**
-     * 接收人需要处理的业务类型
+     * 消息使用的模板
      */
-    private int bizType;
+    private int template;
 
     /**
-     * 接收人需要处理的业务id
+     * 消息发送状态：0待发送，1已发送
      */
-    private long bizId;
+    private int status;
 }
 
