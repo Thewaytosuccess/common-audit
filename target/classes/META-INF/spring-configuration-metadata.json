@@ -1,0 +1,11 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.common.message.config.mqtt.MqttConfig",
+      "name": "mqtt.server",
+      "type": "com.common.message.config.mqtt.MqttConfig"
+    }
+  ],
+  "properties": []
+}
